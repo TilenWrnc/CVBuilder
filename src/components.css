@@ -1,0 +1,63 @@
+svg {
+    width: 200px;
+    height: auto;
+}
+
+.general-information,
+.education,
+.professional-experience {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.show-more-button {
+    padding: 5px;
+    font-weight: 700;
+    height: 35px;
+    margin: 30px 0px;
+}
+
+.show-more {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 20px 0px;
+}
+
+input {
+    height: 40px;
+    text-align: center;
+    border: 3px solid gray;
+    font-size: 15px;
+}
+
+h2 {
+    font-size: 25px;
+    margin: 30px 0px;
+}
+
+.first-input,
+.first-button {
+    margin-top: 0px;
+}
+
+.submit-button {
+    height: 30px;
+    font-weight: bold;
+    margin: 30px 0px;
+}

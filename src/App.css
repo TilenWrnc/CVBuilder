@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", serif;
+}
+
+body {
+    background-color: #dbdada;
+
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.intro,
+.inputs,
+.blank {
+    padding: 50px;
+    border-radius: 20px;
+    background-color: white;
+    -webkit-box-shadow: 5px 10px 20px 10px rgba(133,133,133,1);
+    -moz-box-shadow: 5px 10px 20px 10px rgba(133,133,133,1);
+    box-shadow: 5px 10px 20px 10px rgba(133,133,133,1);
+    width: 20%;
+    height: 70vh;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inputs {
+    overflow: scroll;    
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+;}
