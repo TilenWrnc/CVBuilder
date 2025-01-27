@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #dbdada;
+    background-color: #a4ebf0;
 
 }
 
@@ -39,4 +39,5 @@ body {
     overflow: scroll;    
     scrollbar-width: thin;
     scroll-behavior: smooth;
-;}
+}
+

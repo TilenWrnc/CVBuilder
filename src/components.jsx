@@ -13,36 +13,40 @@ function Logo() {
     )
 }
 
-function GeneralInformation() {
-    const [showMore, setShowMore] = useState(false);
 
-    function handleShowMore() {
-        setShowMore(!showMore);
-    }
-
+function GeneralInformation({
+    showMore,submited, onShowMore, onSubmit, onEdit
+}) {
     return (
         <div className="general-information">
             <div className="button-container"> 
                 <h2 className="first-input">General Information</h2>
-                <button onClick={handleShowMore} className="show-more-button first-button">
-                    {showMore ? "Show Less" : "Show More"}
-                </button>
+                {!submited && (
+                    <button onClick={onShowMore} className="show-more-button first-button">
+                        {showMore ? "Show Less" : "Show More"}
+                    </button>
+                )}
+                {submited && (
+                    <button onClick={onEdit} className="edit-button first-button">
+                        {"Edit"}
+                    </button>
+                )}
             </div> 
             <div className="show-more">
-                {showMore && (
+                {showMore && !submited && (
                         <>
-                            <form action="get">
+                            <form onSubmit={onSubmit}>
                                 <label htmlFor="name">Full Name</label>
-                                <input type="text" id="name" required/>
+                                <input type="text" id="name" name="name" required/>
 
                                 <label htmlFor="email">Email</label>
-                                <input type="email" id="email" placeholder="example@gmail.com" required/>
+                                <input type="email" id="email" name="email" placeholder="example@gmail.com" required/>
 
-                                <label htmlFor="phone-number">Phone Number</label>
-                                <input type="tel" id="phone-number" placeholder="+xxx0000000" required/>
+                                <label htmlFor="phoneNumber">Phone Number</label>
+                                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+xxx0000000" required/>
 
                                 <label htmlFor="country">Country and City</label>
-                                <input type="text" id="country" required/>
+                                <input type="text" id="country" name="country" required/>
 
                                 <button type="submit" className="submit-button">SUBMIT</button>
                             </form>                                
@@ -54,41 +58,45 @@ function GeneralInformation() {
     )
 }
 
-function Education() {
-    const [showMore, setShowMore] = useState(false);
-
-    function handleShowMore() {
-        setShowMore(!showMore);
-    }
+function Education({
+    showMore,submited, onShowMore, onSubmit, onEdit
+}) {
     return (
         <div className="education">
             <div className="button-container">
                 <h2>Education</h2>
-                <button onClick={handleShowMore} className="show-more-button">
-                    {showMore ? "Show Less" : "Show More"}
-                </button>
+                {!submited && (
+                    <button onClick={onShowMore} className="show-more-button">
+                        {showMore ? "Show Less" : "Show More"}
+                    </button>
+                )}
+                {submited && (
+                    <button onClick={onEdit} className="edit-button">
+                        {"Edit"}
+                    </button>
+                )}
             </div>
             <div className="show-more">
-                {showMore && (
+                {showMore && !submited && (
                         <>
-                            <form action="get">
+                            <form onSubmit={onSubmit}>
                                 <label htmlFor="degree">Degree</label>
-                                <input type="text" id="defree" required/>
+                                <input type="text" id="degree" name="degree" required/>
 
                                 <label htmlFor="school">School</label>
-                                <input type="text" id="school" required/>
+                                <input type="text" id="school" name="school" required/>
 
                                 <label htmlFor="city">City</label>
-                                <input type="text" id="city" required/>
+                                <input type="text" id="city" name="city" required/>
 
-                                <label htmlFor="country">Country</label>
-                                <input type="text" id="country" required/>
+                                <label htmlFor="countryEducation">Country</label>
+                                <input type="text" id="countryEducation" name="countryEducation" required/>
 
-                                <label htmlFor="start-date">Start Date</label>
-                                <input type="date" id="start-date" required/>
+                                <label htmlFor="startDateEducation">Start Date</label>
+                                <input type="date" id="startDateEducation" name="StartDateEducation" required/>
 
-                                <label htmlFor="end-date">End Date</label>
-                                <input type="date" id="end-date" required/>
+                                <label htmlFor="endDateEducation">End Date</label>
+                                <input type="date" id="endDateEducation"  name="endDateEducation" required/>
 
                                 <button type="submit" className="submit-button">SUBMIT</button>
                             </form>
@@ -99,55 +107,89 @@ function Education() {
     )
 }
 
-function ProfessionalExperience() {
-    
-    const [showMore, setShowMore] = useState(false);
-
-    function handleShowMore() {
-        setShowMore(!showMore);
-    }
-
+function ProfessionalExperience({
+    showMore,submited, onShowMore, onSubmit, onEdit
+}) {
     return (
         <div className="professional-experience">
             <div className="button-container">
                 <h2>Professional Experience </h2>
-                <button onClick={handleShowMore} className="show-more-button">
-                    {showMore ? "Show Less" : "Show More"}
-                </button>
+                {!submited && (
+                    <button onClick={onShowMore} className="show-more-button">
+                        {showMore ? "Show Less" : "Show More"}
+                    </button>
+                )}
+                {submited && (
+                    <button onClick={onEdit} className="edit-button">
+                        {"Edit"}
+                    </button>
+                )}
             </div>
             <div className="show-more">
-                {showMore && (
-                        <>
-                            <form action="get">
-                                <label htmlFor="job-title">Job Title</label>
-                                <input type="text" id="job-title" required/>
+                {showMore && !submited && (
+                    <>
+                        <form onSubmit={onSubmit}>
+                            <label htmlFor="jobTitle">Job Title</label>
+                            <input type="text" id="jobTitle" name="jobTitle" required />
 
-                                <label htmlFor="company-title">Company Name</label>
-                                <input type="text" id="company-title" required/>
+                            <label htmlFor="companyName">Company Name</label>
+                            <input type="text" id="companyName" name="companyName" required />
 
-                                <label htmlFor="start-date">Start Date</label>
-                                <input type="date" id="start-date" required/>
+                            <label htmlFor="startDateExperience">Start Date</label>
+                            <input type="date" id="startDateExperience" name="startDateExperience" required />
 
-                                <label htmlFor="end-date">End Date</label>
-                                <input type="date" id="end-date" required/>
+                            <label htmlFor="endDateExperience">End Date</label>
+                            <input type="date" id="endDateExperience" name="endDateExperience" required />
 
-                                <label htmlFor="job-tasks">Job Tasks</label>
-                                <input type="text" id="job-tasks" required/>
+                            <label htmlFor="jobTasks">Job Tasks</label>
+                            <input type="text" id="jobTasks" name="jobTasks" required />
 
-                                <button type="submit" className="submit-button">SUBMIT</button>
-                            </form>
-                        </>
+                            <button type="submit" className="submit-button">SUBMIT</button>
+                        </form>
+                    </>
                 )}
             </div>            
         </div>
-    )
+    );
 }
 
-function BlankPaper() {
+
+function BlankPaper({generalInfo, education, experience, submitedGeneralInfo, submitedEducation, submitedExperience  }) {
     return (
-        <>
-            
-        </>
+        <div className="final-container">
+            <div className="final-general-information">
+                {submitedGeneralInfo && (
+                    <>
+                        <p>{generalInfo.fullName}</p>
+                        <p>{generalInfo.email}</p>
+                        <p>{generalInfo.phoneNum}</p>
+                        <p>{generalInfo.country}</p>
+                    </>
+                )}
+            </div>
+            <div className="final-education">
+                {submitedEducation && (
+                    <>
+                        <p>{education.degree}</p>
+                        <p>{education.school}</p>
+                        <p>{education.city}</p>
+                        <p>{education.country}</p>
+                        <p>From: {education.startDate} to: {education.endDate}</p>
+                    </>
+                )}
+
+            </div>
+            <div className="final-experience">
+                {submitedExperience && (
+                    <>
+                        <p>{experience.jobTitle}</p>
+                        <p>{experience.companyName}</p>
+                        <p>From: {experience.startDate} to: {experience.endDate}</p>
+                        <p>{experience.jobTasks}</p>
+                    </>
+                )}
+            </div>
+        </div>
     )
 
 }
